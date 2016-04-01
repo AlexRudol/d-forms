@@ -1,0 +1,116 @@
+// out: ../css/styles.min.css
+
+
+//  R E S E T T E R
+
+        * { margin: 0; padding: 0; box-sizing: border-box; vertical-align: top; }
+
+
+//  R E S P O N S I V E   L A Y O U T
+
+        @mixin breakpoint($point) {
+                @if $point == norml {
+                        @media (min-width: 70.1em) { @content ; }
+                }
+                @else if $point == narrow {
+                        @media (max-width: 70em) { @content ; }
+                }
+                @else if $point == compact {
+                        @media (max-width: 50em)  { @content ; }
+                }
+        }
+
+
+//  C O L O R S
+
+        $main1:         #5361A2;
+        $main2:         #D35038;
+        $main3:         #f59a30;
+        $main4:         #85b03f;
+        $grey1:          #444;
+        $lightest:       #fff;
+
+
+//  F O N T S
+
+        @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,400italic,700&subset=latin,cyrillic);
+        @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300&subset=latin,cyrillic);
+
+        @font-face {
+                font-family: "landing-page-cv";
+                src:url("../fonts/landing-page-cv.eot");
+                src:url("../fonts/landing-page-cv.eot?#iefix") format("embedded-opentype"),
+                        url("../fonts/landing-page-cv.woff") format("woff"),
+                        url("../fonts/landing-page-cv.ttf") format("truetype"),
+                        url("../fonts/landing-page-cv.svg#landing-page-cv") format("svg");
+                font-weight: normal;
+                font-style: normal;
+        }
+
+        $normal:                'Roboto', 'Droid Sans', Arial, sans-serif;
+        $condensed:             'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        $icons:                 'landing-page-cv';
+
+        html, body { width: 100%; max-width: 100%; }
+        body { font-family: $normal; font-weight: 300; font-size: 100%; color: $grey1; }
+
+        h1, h2, h3, h4 { font-family: $condensed; margin: 1.5em 0 .7em 0; font-weight: 300;  }
+        h1 { font-size: 500%; font-weight: 600; color: lighten($main2,42%); margin: .5em 0; line-height: .8em; white-space: nowrap; }
+        h2 { font-size: 200%; color: lighten($main2,10%); line-height: .9em; border-bottom: 1px solid lighten($main2,20%); }
+        h3 { font-size: 150%; color: lighten($grey1,40%); line-height: 1.2em; }
+        h4 { font-size: 100%; font-weight: 400; }
+
+        input, textarea, keygen, select, button { font-family: $normal; font-weight: 300; font-size: 100%; color: $grey1; }
+
+//  E L E M E N T S
+
+        // Blocks
+        .center { margin: 0 auto; text-align: center; }
+        .left, .right { display: inline-block; }
+        .right { margin-left: 1.5em; margin-top: 1.5em; }
+        .grid {
+                & > div { display: inline-block; width: 49%; margin: 0 0 1em 0; padding-right: 1em; }
+        }
+
+        // Text
+        .small { font-size: 80%; color: lighten($grey1,40%); }
+
+        // Links
+        a { text-decoration: none; transition: all .2s ease-out; }
+
+        // Lists
+
+
+        //  Buttons
+
+                // To top button
+                #to-top { position: fixed; z-index: 7000; bottom: 25%; right: 1.9em; font-size: 80%; transition: all .4s ease-out;
+                        a { display: block; position: relative; overflow: hidden; width: 4.5em; height: 4.5em; text-align: center; line-height: 4.3em; text-decoration: none; color: lighten($grey1,40%); background-color: $lightest; border-radius: 50%; box-shadow: .1em .15em 0 rgba(0,0,0,.1); transition: width .4s ease;
+                                &:before { position: relative; right: -.05em; content: '\e000'; font-family: $icons; font-size: 200%; }
+                                &:hover { text-decoration: none; color: $lightest; background-color: lighten($main1,5%); }
+                        }
+                        &.hidden { right: 3.4em;
+                                a { width: 0; color: rgba(255,255,255,0); }
+                        }
+                }
+
+        //  Backgrounds
+
+
+
+//  C O N T E N T   S T Y L E S
+
+        #content { margin: 0 auto; padding: 1em 2em; width: 60%;
+                @include breakpoint(narrow) { width: 90%; padding: 1em;  }
+                @include breakpoint(compact) { width: 100%; padding: 1em; }
+        }
+
+        footer { margin: 4em 0 6em 0;
+                a { @extend .small; font-size: 100%;
+                        &:hover { color: $main1; }
+                }
+        }
+
+
+
+//  A N I M A T I O N

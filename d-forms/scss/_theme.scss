@@ -1,0 +1,61 @@
+// main: _base.scss
+
+//  C O L O R S
+
+        $main:             #e65c18;
+        $input-back:            #fff;
+        $borders:               #ccc;
+        $text-dark:             #444;
+        $text-grey:             #cacaca;
+        $text-light:            #fff;
+
+
+//  E L E M E N T S
+
+        // Set d-form elements
+        input, textarea, keygen,
+        select, .select .checked, .select .options li,
+        button, .d-form.button {
+                @extend .d-forms.elem;
+        }
+
+        // Position: inline or wrap
+        input, textarea, keygen,
+        button, .d-form.button {
+                @extend .d-forms.inline;
+        }
+
+        // Set label position: inline or wrap
+        form > label, form > fieldset > label { @extend .d-forms.item;
+                @extend .inline;
+        }
+
+        //  T H E M E   S T Y L E S
+
+                // Common input styles
+                .d-forms.elem {
+                        padding: .65em 1em .45em; margin: 0; border: 1px solid $borders; background-color: $input-back; transition: all .3s ease-out;
+                        &:hover { border-color: darken($borders,25%); }
+                        &:active, &:focus { border-color: $input-back !important; box-shadow: 0 0 0 .12em lighten($main,10%); }
+                }
+
+                // Select
+                .select {
+                        @extend .d-forms.elem.select;
+                }
+
+                // Buttons
+                .d-forms.button {
+                        margin: 0 1em 1em 0; padding: .65em 1em .45em; border: 1px solid $main; background-color: $main; color: $text-light;
+                                &:hover, &:focus { cursor: pointer; box-shadow: 0 0 0 .12em $main; border-color: $main !important; }
+                }
+
+                // Fieldset
+                fieldset {
+                        @extend .d-forms.fieldset; margin: 1em 1em 1em 0; padding: 1.5em 1.5em; border: 1px solid lighten($borders,12%);
+                }
+
+                // Submit
+                input[type="submit"] {
+                        @extend .d-forms.submit; font-size: 120%; text-transform: uppercase;
+                }

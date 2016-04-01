@@ -1,0 +1,126 @@
+// main: _base.scss
+
+        @font-face {
+                font-family: "d-forms-icons";
+                src:url("../fonts/d-forms-icons.eot");
+                src:url("../fonts/d-forms-icons.eot?#iefix") format("embedded-opentype"),
+                        url("../fonts/d-forms-icons.woff") format("woff"),
+                        url("../fonts/d-forms-icons.ttf") format("truetype"),
+                        url("../fonts/d-forms-icons.svg#d-forms-icons") format("svg");
+                font-weight: normal;
+                font-style: normal;
+        }
+        $icons:                 'd-forms-icons';
+
+        // Positining
+                form > label, form > fieldset > label {
+                        &.inline, .inline { display: inline-block; }
+                        &.to-right, .to-right { display: block; text-align: right; }
+                }
+
+        .d-forms {
+
+                // Form Objects
+                        &.fieldset {
+                                legend { padding: 0 .5em; }
+                        }
+                                &.label { margin: 0 0 .5em; }
+                                &.item { position: relative; margin: 1em 1.5em 1.5em 0;
+                                        &.hover:hover { cursor: pointer; }
+                                }
+
+                                        &.elem { position: relative; vertical-align: top; outline: none;
+
+                                                &.bttn-right { padding-right: 2em !important; }
+
+                                                // With icons
+                                                &.with-icon { position: relative; padding-left: 2.5em !important;
+                                                        &[type="text"], &[type="textarea"] {  }
+                                                }
+                                                &.with-icon-only { display: inline-block; position: relative; overflow: hidden; padding: 0 !important; margin: 0 0 0 -.25em; width: 3em; height: 2.37em; line-height: 100em; top: 0;
+                                                        &:before { @extend .icon:before; }
+                                                }
+
+                                                // Selects
+                                                &[type=checkbox], &[type=radio] { margin-right: 1.4em;
+                                                        &.single { margin-right: 2.8em; }
+                                                }
+                                                &.marker { display: block; position: absolute; z-index: 11; font-family: $icons; content: ''; text-align: center; transition: all .3s cubic-bezier(0, 1.5, 1, 1.5); }
+
+                                                // Checkbox
+                                                &.checkbox { @extend .d-forms.elem; @extend input; position: absolute; overflow: hidden; z-index: 10; content: ''; padding: 0; width: 1.4em; height: 1.4em; top: -.2em;
+                                                        .hover & { @extend .d-forms.elem:hover; }
+                                                        .active & { @extend .d-forms.elem:active; }
+                                                        &:before { @extend .d-forms.elem.marker; font-size: 120%; transition: all .3s ease-out; }
+                                                        &:after { display: block; position: absolute; z-index: 11; width: 1.3em; height: 1.3em; top: .1em; left: .3em; content: ''; transition: all .3s ease-out; border-radius: 50%; background-color: $input-back; }
+                                                        .checked & {
+                                                                &:before { content: '\e001'; }
+                                                                &:after { width: .7em; height: .7em; top: -.5em; }
+                                                        }
+                                                        // Single option
+                                                        &.single { height: 1.5em; width: 2.8em;
+                                                                &:before { width: .8em; height: 65%; left: .2em; top: 16%; content: ''; background-color: $text-grey; }
+                                                                &:after { display: none; }
+                                                                .checked & {
+                                                                        &:before { left: 1.2em; background-color: $main; }
+                                                                }
+                                                        }
+                                                }
+
+                                                // Radio
+                                                &.radio { @extend .d-forms.elem.checkbox; width: 1.6em; height: 1.6em; border-radius: 50%;
+                                                        &:before { @extend .d-forms.elem.marker; width: .1em; height: .1em; margin: .57em; border-radius: 50%; background-color: $input-back; }
+                                                        &:after { display: none; }
+                                                        .checked & {
+                                                                &:before { content: ''; width: .6em; height: .6em; margin: .32em; background-color: $text-dark; }
+                                                        }
+                                                }
+
+                                                // Select
+                                                &.select { display: inline-block; position: relative;
+                                                        &:hover { cursor: pointer; }
+                                                        .checked {  padding-right: 2.4em;
+                                                                &:after  { position: absolute; right: .5em; font-family: $icons; content: '\e000'; transform: rotate(180deg); }
+                                                        }
+                                                        .options { position: absolute; overflow: hidden; z-index: 9999; width: 100%; top: -2px; max-height: 0; border: 1px solid $input-back; box-shadow: .2em .2em .6em rgba(0,0,0,0); transition: all .3s linear;
+                                                                &.opened { max-height: 30vh; border: 1px solid $borders; box-shadow: .2em .2em .6em rgba(0,0,0,.2); }
+                                                                li { list-style: none; border: 2px solid $input-back;
+                                                                        &:hover { border-color: $main; }
+                                                                }
+                                                        }
+                                                }
+
+                                                // File
+                                                &.file { @extend .d-forms.elem; @extend input; overflow: hidden; padding-left: 2.65em; width: 15em;
+                                                        &:hover { cursor: pointer; }
+                                                        .icon { color: $text-grey; font-size: 80%; top: .3em; left: .35em; }
+                                                        input { position: absolute; opacity: 0; padding: 0;
+                                                                &:hover { cursor: pointer; }
+                                                        }
+                                                }
+                                                &.file-submit { font-size: 100%; text-transform: none; }
+
+                                        }
+
+                // icons
+                        &.icon { position: absolute; z-index: 10; color: $text-light; pointer-events: none;
+                                &:before { position: absolute; left: .5em; top: .35em; font-family: $icons; font-size: 140%; line-height: 1em;}
+                                &.ok:before { content: '\e001'; }
+                                &.search:before { content: '\e014'; }
+                                &.address:before { content: '\e007'; }
+                                &.mail:before { content: '\e00F'; }
+                                &.file:before { content: '\e011'; }
+
+                                &.input { left: .3em; top: .5em; font-size: 75%; color: $text-grey; }
+                                &.submit { margin: .3em; font-size: 100%; }
+                        }
+
+
+                // Buttons
+                        &.button { position: relative; }
+                        // Submit
+                        &.submit {  }
+
+
+
+        }
