@@ -2,12 +2,18 @@
 
 //  C O L O R S
 
-        $main:             #e65c18;
-        $input-back:            #fff;
-        $borders:               #ccc;
-        $text-dark:             #444;
-        $text-grey:             #cacaca;
-        $text-light:            #fff;
+        // Form elements
+        $main:                #666;
+        $input-back:       #fff;
+        $borders:            #ccc;
+        // Text
+        $text-dark:          #444;
+        $text-grey:          #cacaca;
+        $text-light:          #fff;
+        // Status
+        $green:               #90d027;
+        $yellow:              #f1da5f;
+        $red:                   #e04a2f;
 
 
 //  E L E M E N T S
@@ -27,7 +33,7 @@
 
         // Set label position: inline or wrap
         form > label, form > fieldset > label { @extend .d-forms.item;
-                @extend .inline;
+                @extend .d-forms.inline;
         }
 
         //  T H E M E   S T Y L E S
@@ -42,6 +48,12 @@
                 // Select
                 .select {
                         @extend .d-forms.elem.select;
+                        .options { border: 1px solid $input-back; box-shadow: .2em .2em .6em rgba(0,0,0,0);
+                                &.opened { border: 1px solid $borders; box-shadow: .2em .2em .6em rgba(0,0,0,.2); }
+                                li { border: 2px solid $input-back;
+                                        &:hover { color: $text-light; border-color: $main; background-color: $main; }
+                                }
+                        }
                 }
 
                 // Buttons
