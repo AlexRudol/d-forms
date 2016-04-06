@@ -32,7 +32,8 @@
         }
 
         // Set label position: inline or wrap
-        form > label, form > fieldset > label { @extend .d-forms.item;
+        form > label, form > fieldset > label {
+                @extend .d-forms.item;
                 @extend .d-forms.inline;
         }
 
@@ -40,9 +41,9 @@
 
                 // Common input styles
                 .d-forms.elem {
-                        padding: .65em 1em .45em; margin: 0; border: 1px solid $borders; background-color: $input-back; transition: all .3s ease-out;
+                        padding: .65em 1em .45em; margin: 0; border: 1px solid $borders; background-color: $input-back; box-shadow: 0 0 0 0 lighten($main,10%); transition: all .3s ease-out;
                         &:hover { border-color: darken($borders,25%); }
-                        &:active, &:focus { border-color: $input-back !important; box-shadow: 0 0 0 .12em lighten($main,10%); }
+                        &:active, &:focus { border-color: $input-back !important; box-shadow: 0 0 0 2px lighten($main,10%); }
                 }
 
                 // Select
