@@ -4,7 +4,7 @@
 
 Simple and lightweight web-form styles.
 
-Easy to start using, tweak and extend.
+Easy to use, tweak and extend.
 
 *HTML5, CSS3 (SCSS), jQuery*
 
@@ -30,13 +30,14 @@ All minimized and ready to use files are in **/d-forms** folder:
 
 ## How to customize
 
-It's easy to customize by changing files in the /src folder.
+It's easy to customize by changing files in the **/src** folder.
 
 To change styles:
 
-1. There are separate styles in the **_theme-standart.scss** for: Colors, Elements, Theme Styles. Just change colors, parameters, add styles etc. It's better to:
-  1. Copy and rename **/src/scss/_theme-standart.scss** file.
-  1. Change the first line of **/src/scss/d-forms.scss** with new filename.
+1. There are separate styles in the **_theme-standart.scss** for: colors, elements, theme styles. It's better to:
+  1. Copy **/src/scss/_theme-standart.scss** file and rename (*_theme-NAME.scss*).
+  1. Change the first line of **/src/scss/d-forms.scss** with new filename (*_theme-NAME.scss*).
+  1. Change anything in **_theme-NAME.scss** file.
 1. Compile **/src/scss/d-forms.scss** to **/d-forms/d-forms.min.css**. There is ready to use **gulpfile.js** or use Grunt or your editor's plugins.
 
 ## Found a bug?
