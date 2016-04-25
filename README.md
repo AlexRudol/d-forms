@@ -1,6 +1,6 @@
 # D-Forms
 
-[Demo](http://alexrudol.com/demo/d-forms/demo/) | [GitHub](https://github.com/AlexRudol/d-forms)
+[Demo](http://alexrudol.com/demo/d-forms/) | [GitHub](https://github.com/AlexRudol/d-forms)
 
 Simple and lightweight web-form styles.
 
